@@ -1,6 +1,6 @@
 [package]
 name = "web-service-epoch-axum"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2024"
 authors = ["Joel Parker Henderson <joel@joelparkerhenderson.com>"]
 license = "GPL-2.0 OR GPL-3.0"
@@ -9,7 +9,7 @@ repository = "https://github.com/joelparkerhenderson/web-service-epoch-axum"
 documentation = "https://github.com/joelparkerhenderson/web-service-epoch-axum"
 
 description = """
-Web service that displays the epoch time by using Axum, Tokio, Rust.
+Web service that displays the epoch time by using Axum, Tokio, Rust. The purpose of this is simple testing of our systems.
 """
 
 readme = "README.md"
