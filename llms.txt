@@ -2,7 +2,7 @@
 
 **Version:** 1.1.0
 
-**Format Version:** 43
+**Format Version:** 45
 
 # Module `web_service_epoch_axum`
 
