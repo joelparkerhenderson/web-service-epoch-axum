@@ -68,25 +68,18 @@ async fn main() {
         .unwrap();
 }
 
-////
-// Shutdown signal to run axum with graceful shutdown
-//
-// This handles a user pressing Ctrl+C.
-// This handles a Unix terminate signal.
-////
-
-use tokio::signal;
-
+/// Shutdown signal to run axum with graceful shutdown when
+/// a user presses Ctrl+C or Unix sends a terminate signal.
 pub async fn shutdown_signal() {
     let ctrl_c = async {
-        signal::ctrl_c()
+        tokio::signal::ctrl_c()
             .await
             .expect("failed to install Ctrl+C handler");
     };
 
     #[cfg(unix)]
     let terminate = async {
-        signal::unix::signal(signal::unix::SignalKind::terminate())
+        tokio::signal::unix::signal(tokio::signal::unix::SignalKind::terminate())
             .expect("failed to install signal handler")
             .recv()
             .await;
