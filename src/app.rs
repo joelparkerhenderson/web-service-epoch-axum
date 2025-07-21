@@ -5,7 +5,7 @@ use axum::routing::get;
 pub fn app() -> axum::Router {
     axum::Router::new()
         .fallback(fallback)
-        .route("/", get(epoch))
+        .route("/epoch", get(epoch))
 }
 
 /// axum handler for any request that fails to match the router routes.
@@ -14,7 +14,7 @@ pub async fn fallback(uri: axum::http::Uri) -> impl axum::response::IntoResponse
     (axum::http::StatusCode::NOT_FOUND, uri.to_string())
 }
 
-/// axum handler for "GET /" which shows the current epoch time.
+/// axum handler for "GET /epoch" which shows the current epoch time.
 /// This shows how to write a handler that uses time and can error.
 pub async fn epoch() -> Result<String, axum::http::StatusCode> {
     match std::time::SystemTime::now().duration_since(std::time::SystemTime::UNIX_EPOCH) {
@@ -32,9 +32,9 @@ mod tests {
     async fn test_response() {
         let app: axum::Router = app();
         let server = TestServer::new(app).unwrap();
-        let response_text_0 = server.get("/").await.text();
+        let response_text_0 = server.get("/epoch").await.text();
         std::thread::sleep(std::time::Duration::from_secs(1));
-        let response_text_1 = server.get("/").await.text();
+        let response_text_1 = server.get("/epoch").await.text();
         assert!(response_text_0 < response_text_1, "{} < {}", response_text_0, response_text_1)
     }
 
