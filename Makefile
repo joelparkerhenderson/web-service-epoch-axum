@@ -21,8 +21,8 @@ llms:
 cargo-build-release:
 	cargo build --release --target aarch64-apple-darwin
 	git add --force target/aarch64-apple-darwin/release/web-service-epoch-axum
-	cargo build --release --target x86_64-pc-windows-gnu 
-	git add --force target/x86_64-pc-windows-gnu/release/web-service-epoch-axum.exe                    
+	cargo build --release --target x86_64-pc-windows-gnu
+	git add --force target/x86_64-pc-windows-gnu/release/web-service-epoch-axum.exe
 	TARGET_CC=x86_64-unknown-linux-gnu cargo build --release --target x86_64-unknown-linux-gnu
 	git add --force target/x86_64-unknown-linux-gnu/release/web-service-epoch-axum
 	TARGET_CC=x86_64-unknown-linux-musl cargo build --release --target x86_64-unknown-linux-musl
