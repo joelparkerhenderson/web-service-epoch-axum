@@ -3709,7 +3709,7 @@ dependencies = [
 
 [[package]]
 name = "web-service-epoch-axum"
-version = "1.5.1"
+version = "1.5.2"
 dependencies = [
  "axum",
  "axum-test",
