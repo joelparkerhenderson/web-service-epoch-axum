@@ -32,16 +32,18 @@ You should see the epoch time increase a little bit.
 
 ## Options
 
-Run the service using a command line option for a custom address:
+Run the service using an environment variable for a custom bind address:
 
 ```sh
-cargo run -- "1.2.3.4:5678"
+export BIND="1.1.1.1:1111"
+cargo run
 ```
 
-Run the service using an environment variable for a custom address:
+Run the service using environment variables for a custom host and port:
 
 ```sh
-export ADDRESS="1.2.3.4:5678"
+export HOST="1.1.1.1"
+export PORT="1111"
 cargo run
 ```
 
