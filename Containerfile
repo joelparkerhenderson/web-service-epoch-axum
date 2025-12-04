@@ -1,16 +1,6 @@
-FROM rust:1.88.0
+FROM rust:1.89.0
 WORKDIR /app
 COPY . .
 RUN cargo build --release
 EXPOSE 8080
 CMD ["./target/release/web-service-epoch-axum"]
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:8080/epoch || exit 1
-LABEL org.opencontainers.image.authors="Joel Parker Henderson <joel@joelparkerhenderson.com>"
-LABEL org.opencontainers.image.description="Web service epoch axum example"
-LABEL org.opencontainers.image.documentation="https://github.com/joelparkrhenderson/web-service-epoch-axum"
-LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.source="https://github.com/joelparkrhenderson/web-service-epoch-axum"
-LABEL org.opencontainers.image.title="web-service-count-axum"
-LABEL org.opencontainers.image.url="https://github.com/joelparkrhenderson/web-service-epoch-axum"
-LABEL org.opencontainers.image.version="1.5.2"

@@ -1,0 +1,13 @@
+[Unit]
+Description=Web service epoch axum
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=PORT=10000 /opt/web-service-epoch-axum/target/release/web-service-epoch-axum
+
+[Install]
+WantedBy=multi-user.target

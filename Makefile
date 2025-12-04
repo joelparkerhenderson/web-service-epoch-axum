@@ -37,3 +37,10 @@ cargo-build-release:
 podman-build:
 	#podman machine start
 	podman build -t web-service-epoch-axum "${top}"
+
+##
+# gcloud-run: Use gcloud to deploy to Google Cloud Run.
+##
+.PHONY: gcloud-run
+gcloud-run:
+	gcloud run web-service-epoch-axum --source . --region us-west1 --allow-unauthenticated
